@@ -15,9 +15,14 @@
 
 // Forward declaration of `ColorScheme` to properly resolve imports.
 namespace margelo::nitro::test { enum class ColorScheme; }
+// Forward declaration of `HybridBaseSpec` to properly resolve imports.
+namespace margelo::nitro::test { class HybridBaseSpec; }
 
 #include "ColorScheme.hpp"
 #include <functional>
+#include <memory>
+#include "HybridBaseSpec.hpp"
+#include <optional>
 
 namespace margelo::nitro::test {
 
@@ -54,6 +59,8 @@ namespace margelo::nitro::test {
       virtual void setColorScheme(ColorScheme colorScheme) = 0;
       virtual std::function<void()> getSomeCallback() = 0;
       virtual void setSomeCallback(const std::function<void()>& someCallback) = 0;
+      virtual std::optional<std::shared_ptr<HybridBaseSpec>> getHybridData() = 0;
+      virtual void setHybridData(const std::optional<std::shared_ptr<HybridBaseSpec>>& hybridData) = 0;
 
     public:
       // Methods

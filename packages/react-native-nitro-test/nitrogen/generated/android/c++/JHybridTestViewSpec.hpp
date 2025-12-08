@@ -58,6 +58,8 @@ namespace margelo::nitro::test {
     void setColorScheme(ColorScheme colorScheme) override;
     std::function<void()> getSomeCallback() override;
     void setSomeCallback(const std::function<void()>& someCallback) override;
+    std::optional<std::shared_ptr<HybridBaseSpec>> getHybridData() override;
+    void setHybridData(const std::optional<std::shared_ptr<HybridBaseSpec>>& hybridData) override;
 
   public:
     // Methods

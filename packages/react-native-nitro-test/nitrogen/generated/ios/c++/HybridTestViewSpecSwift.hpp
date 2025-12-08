@@ -14,9 +14,14 @@ namespace NitroTest { class HybridTestViewSpec_cxx; }
 
 // Forward declaration of `ColorScheme` to properly resolve imports.
 namespace margelo::nitro::test { enum class ColorScheme; }
+// Forward declaration of `HybridBaseSpec` to properly resolve imports.
+namespace margelo::nitro::test { class HybridBaseSpec; }
 
 #include "ColorScheme.hpp"
 #include <functional>
+#include <memory>
+#include "HybridBaseSpec.hpp"
+#include <optional>
 
 #include "NitroTest-Swift-Cxx-Umbrella.hpp"
 
@@ -83,6 +88,13 @@ namespace margelo::nitro::test {
     }
     inline void setSomeCallback(const std::function<void()>& someCallback) noexcept override {
       _swiftPart.setSomeCallback(someCallback);
+    }
+    inline std::optional<std::shared_ptr<HybridBaseSpec>> getHybridData() noexcept override {
+      auto __result = _swiftPart.getHybridData();
+      return __result;
+    }
+    inline void setHybridData(const std::optional<std::shared_ptr<HybridBaseSpec>>& hybridData) noexcept override {
+      _swiftPart.setHybridData(hybridData);
     }
 
   public:

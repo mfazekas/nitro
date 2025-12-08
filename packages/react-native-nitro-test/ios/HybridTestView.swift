@@ -21,6 +21,7 @@ class HybridTestView: HybridTestViewSpec {
   var hasBeenCalled: Bool = false
   var colorScheme: ColorScheme = .light
   var someCallback: () -> Void = {}
+  var hybridData: (any HybridBaseSpec)?
 
   // Methods
   func someMethod() throws {

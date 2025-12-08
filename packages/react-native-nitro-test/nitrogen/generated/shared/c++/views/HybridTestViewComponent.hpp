@@ -19,8 +19,9 @@
 #include "ColorScheme.hpp"
 #include <functional>
 #include <memory>
-#include "HybridTestViewSpec.hpp"
+#include "HybridBaseSpec.hpp"
 #include <optional>
+#include "HybridTestViewSpec.hpp"
 
 namespace margelo::nitro::test::views {
 
@@ -47,6 +48,7 @@ namespace margelo::nitro::test::views {
     CachedProp<bool> hasBeenCalled;
     CachedProp<ColorScheme> colorScheme;
     CachedProp<std::function<void()>> someCallback;
+    CachedProp<std::optional<std::shared_ptr<HybridBaseSpec>>> hybridData;
     CachedProp<std::optional<std::function<void(const std::shared_ptr<HybridTestViewSpec>& /* ref */)>>> hybridRef;
 
   private:

@@ -65,6 +65,16 @@ namespace margelo::nitro::test::views {
         throw std::runtime_error(std::string("TestView.someCallback: ") + exc.what());
       }
     }()),
+    hybridData([&]() -> CachedProp<std::optional<std::shared_ptr<HybridBaseSpec>>> {
+      try {
+        const react::RawValue* rawValue = rawProps.at("hybridData", nullptr, nullptr);
+        if (rawValue == nullptr) return sourceProps.hybridData;
+        const auto& [runtime, value] = (std::pair<jsi::Runtime*, jsi::Value>)*rawValue;
+        return CachedProp<std::optional<std::shared_ptr<HybridBaseSpec>>>::fromRawValue(*runtime, value, sourceProps.hybridData);
+      } catch (const std::exception& exc) {
+        throw std::runtime_error(std::string("TestView.hybridData: ") + exc.what());
+      }
+    }()),
     hybridRef([&]() -> CachedProp<std::optional<std::function<void(const std::shared_ptr<HybridTestViewSpec>& /* ref */)>>> {
       try {
         const react::RawValue* rawValue = rawProps.at("hybridRef", nullptr, nullptr);
@@ -82,6 +92,7 @@ namespace margelo::nitro::test::views {
     hasBeenCalled(other.hasBeenCalled),
     colorScheme(other.colorScheme),
     someCallback(other.someCallback),
+    hybridData(other.hybridData),
     hybridRef(other.hybridRef) { }
 
   bool HybridTestViewProps::filterObjectKeys(const std::string& propName) {
@@ -90,6 +101,7 @@ namespace margelo::nitro::test::views {
       case hashString("hasBeenCalled"): return true;
       case hashString("colorScheme"): return true;
       case hashString("someCallback"): return true;
+      case hashString("hybridData"): return true;
       case hashString("hybridRef"): return true;
       default: return false;
     }

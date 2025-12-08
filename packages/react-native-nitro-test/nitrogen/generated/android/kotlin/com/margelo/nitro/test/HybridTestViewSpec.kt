@@ -73,6 +73,12 @@ abstract class HybridTestViewSpec: HybridView() {
     set(value) {
       someCallback = value
     }
+  
+  @get:DoNotStrip
+  @get:Keep
+  @set:DoNotStrip
+  @set:Keep
+  abstract var hybridData: HybridBaseSpec?
 
   // Methods
   @DoNotStrip

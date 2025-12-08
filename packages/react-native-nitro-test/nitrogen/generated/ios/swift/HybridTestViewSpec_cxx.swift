@@ -165,6 +165,37 @@ open class HybridTestViewSpec_cxx {
       }()
     }
   }
+  
+  public final var hybridData: bridge.std__optional_std__shared_ptr_HybridBaseSpec__ {
+    @inline(__always)
+    get {
+      return { () -> bridge.std__optional_std__shared_ptr_HybridBaseSpec__ in
+        if let __unwrappedValue = self.__implementation.hybridData {
+          return bridge.create_std__optional_std__shared_ptr_HybridBaseSpec__({ () -> bridge.std__shared_ptr_HybridBaseSpec_ in
+            let __cxxWrapped = __unwrappedValue.getCxxWrapper()
+            return __cxxWrapped.getCxxPart()
+          }())
+        } else {
+          return .init()
+        }
+      }()
+    }
+    @inline(__always)
+    set {
+      self.__implementation.hybridData = { () -> (any HybridBaseSpec)? in
+        if bridge.has_value_std__optional_std__shared_ptr_HybridBaseSpec__(newValue) {
+          let __unwrapped = bridge.get_std__optional_std__shared_ptr_HybridBaseSpec__(newValue)
+          return { () -> HybridBaseSpec in
+            let __unsafePointer = bridge.get_std__shared_ptr_HybridBaseSpec_(__unwrapped)
+            let __instance = HybridBaseSpec_cxx.fromUnsafe(__unsafePointer)
+            return __instance.getHybridBaseSpec()
+          }()
+        } else {
+          return nil
+        }
+      }()
+    }
+  }
 
   // Methods
   @inline(__always)

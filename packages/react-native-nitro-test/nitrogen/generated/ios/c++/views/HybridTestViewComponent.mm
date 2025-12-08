@@ -91,6 +91,11 @@ using namespace margelo::nitro::test::views;
     swiftPart.setSomeCallback(newViewProps.someCallback.value);
     newViewProps.someCallback.isDirty = false;
   }
+  // hybridData: optional
+  if (newViewProps.hybridData.isDirty) {
+    swiftPart.setHybridData(newViewProps.hybridData.value);
+    newViewProps.hybridData.isDirty = false;
+  }
 
   swiftPart.afterUpdate();
 

@@ -8,6 +8,7 @@ import { Image } from 'react-native'
 import { BenchmarksScreen } from './screens/BenchmarksScreen'
 import { ViewScreen } from './screens/ViewScreen'
 import { EvalScreen } from './screens/EvalScreen'
+import { DisposeTestScreen } from './screens/DisposeTestScreen'
 
 const dna = require('./img/dna.png')
 const rocket = require('./img/rocket.png')
@@ -74,6 +75,20 @@ export default function App() {
           component={EvalScreen}
           options={{
             tabBarLabel: 'Eval',
+            tabBarIcon: ({ size, focused }) => (
+              <Image
+                source={terminal}
+                tintColor={focused ? undefined : 'grey'}
+                style={{ width: size, height: size }}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="Dispose"
+          component={DisposeTestScreen}
+          options={{
+            tabBarLabel: 'Dispose',
             tabBarIcon: ({ size, focused }) => (
               <Image
                 source={terminal}

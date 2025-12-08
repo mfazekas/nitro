@@ -1888,5 +1888,20 @@ namespace margelo::nitro::test::bridge::swift {
   inline Result_std__variant_std__shared_ptr_margelo__nitro__test__external__HybridSomeExternalObjectSpec___std__string__ create_Result_std__variant_std__shared_ptr_margelo__nitro__test__external__HybridSomeExternalObjectSpec___std__string__(const std::exception_ptr& error) noexcept {
     return Result<std::variant<std::shared_ptr<margelo::nitro::test::external::HybridSomeExternalObjectSpec>, std::string>>::withError(error);
   }
+  
+  // pragma MARK: std::optional<std::shared_ptr<HybridBaseSpec>>
+  /**
+   * Specialized version of `std::optional<std::shared_ptr<HybridBaseSpec>>`.
+   */
+  using std__optional_std__shared_ptr_HybridBaseSpec__ = std::optional<std::shared_ptr<HybridBaseSpec>>;
+  inline std::optional<std::shared_ptr<HybridBaseSpec>> create_std__optional_std__shared_ptr_HybridBaseSpec__(const std::shared_ptr<HybridBaseSpec>& value) noexcept {
+    return std::optional<std::shared_ptr<HybridBaseSpec>>(value);
+  }
+  inline bool has_value_std__optional_std__shared_ptr_HybridBaseSpec__(const std::optional<std::shared_ptr<HybridBaseSpec>>& optional) noexcept {
+    return optional.has_value();
+  }
+  inline std::shared_ptr<HybridBaseSpec> get_std__optional_std__shared_ptr_HybridBaseSpec__(const std::optional<std::shared_ptr<HybridBaseSpec>>& optional) noexcept {
+    return *optional;
+  }
 
 } // namespace margelo::nitro::test::bridge::swift

@@ -9,12 +9,18 @@
 
 // Forward declaration of `ColorScheme` to properly resolve imports.
 namespace margelo::nitro::test { enum class ColorScheme; }
+// Forward declaration of `HybridBaseSpec` to properly resolve imports.
+namespace margelo::nitro::test { class HybridBaseSpec; }
 
 #include "ColorScheme.hpp"
 #include "JColorScheme.hpp"
 #include <functional>
 #include "JFunc_void.hpp"
 #include <NitroModules/JNICallable.hpp>
+#include <memory>
+#include "HybridBaseSpec.hpp"
+#include <optional>
+#include "JHybridBaseSpec.hpp"
 
 namespace margelo::nitro::test {
 
@@ -88,6 +94,15 @@ namespace margelo::nitro::test {
   void JHybridTestViewSpec::setSomeCallback(const std::function<void()>& someCallback) {
     static const auto method = javaClassStatic()->getMethod<void(jni::alias_ref<JFunc_void::javaobject> /* someCallback */)>("setSomeCallback_cxx");
     method(_javaPart, JFunc_void_cxx::fromCpp(someCallback));
+  }
+  std::optional<std::shared_ptr<HybridBaseSpec>> JHybridTestViewSpec::getHybridData() {
+    static const auto method = javaClassStatic()->getMethod<jni::local_ref<JHybridBaseSpec::javaobject>()>("getHybridData");
+    auto __result = method(_javaPart);
+    return __result != nullptr ? std::make_optional(__result->cthis()->shared_cast<JHybridBaseSpec>()) : std::nullopt;
+  }
+  void JHybridTestViewSpec::setHybridData(const std::optional<std::shared_ptr<HybridBaseSpec>>& hybridData) {
+    static const auto method = javaClassStatic()->getMethod<void(jni::alias_ref<JHybridBaseSpec::javaobject> /* hybridData */)>("setHybridData");
+    method(_javaPart, hybridData.has_value() ? std::dynamic_pointer_cast<JHybridBaseSpec>(hybridData.value())->getJavaPart() : nullptr);
   }
 
   // Methods
