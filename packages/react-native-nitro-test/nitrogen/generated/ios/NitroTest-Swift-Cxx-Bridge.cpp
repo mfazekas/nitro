@@ -10,6 +10,9 @@
 // Include C++ implementation defined types
 #include "HybridBaseSpecSwift.hpp"
 #include "HybridChildSpecSwift.hpp"
+#include "HybridMemoryHungryObjectFactorySpecSwift.hpp"
+#include "HybridMemoryHungryObjectSpecSwift.hpp"
+#include "HybridMemoryHungryViewSpecSwift.hpp"
 #include "HybridPlatformObjectSpecSwift.hpp"
 #include "HybridRecyclableTestViewSpecSwift.hpp"
 #include "HybridTestObjectSwiftKotlinSpecSwift.hpp"
@@ -49,6 +52,54 @@ namespace margelo::nitro::test::bridge::swift {
     }
     #endif
     NitroTest::HybridChildSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
+    return swiftPart.toUnsafe();
+  }
+  
+  // pragma MARK: std::shared_ptr<HybridMemoryHungryObjectSpec>
+  std::shared_ptr<HybridMemoryHungryObjectSpec> create_std__shared_ptr_HybridMemoryHungryObjectSpec_(void* NON_NULL swiftUnsafePointer) noexcept {
+    NitroTest::HybridMemoryHungryObjectSpec_cxx swiftPart = NitroTest::HybridMemoryHungryObjectSpec_cxx::fromUnsafe(swiftUnsafePointer);
+    return std::make_shared<margelo::nitro::test::HybridMemoryHungryObjectSpecSwift>(swiftPart);
+  }
+  void* NON_NULL get_std__shared_ptr_HybridMemoryHungryObjectSpec_(std__shared_ptr_HybridMemoryHungryObjectSpec_ cppType) {
+    std::shared_ptr<margelo::nitro::test::HybridMemoryHungryObjectSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::test::HybridMemoryHungryObjectSpecSwift>(cppType);
+    #ifdef NITRO_DEBUG
+    if (swiftWrapper == nullptr) [[unlikely]] {
+      throw std::runtime_error("Class \"HybridMemoryHungryObjectSpec\" is not implemented in Swift!");
+    }
+    #endif
+    NitroTest::HybridMemoryHungryObjectSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
+    return swiftPart.toUnsafe();
+  }
+  
+  // pragma MARK: std::shared_ptr<HybridMemoryHungryObjectFactorySpec>
+  std::shared_ptr<HybridMemoryHungryObjectFactorySpec> create_std__shared_ptr_HybridMemoryHungryObjectFactorySpec_(void* NON_NULL swiftUnsafePointer) noexcept {
+    NitroTest::HybridMemoryHungryObjectFactorySpec_cxx swiftPart = NitroTest::HybridMemoryHungryObjectFactorySpec_cxx::fromUnsafe(swiftUnsafePointer);
+    return std::make_shared<margelo::nitro::test::HybridMemoryHungryObjectFactorySpecSwift>(swiftPart);
+  }
+  void* NON_NULL get_std__shared_ptr_HybridMemoryHungryObjectFactorySpec_(std__shared_ptr_HybridMemoryHungryObjectFactorySpec_ cppType) {
+    std::shared_ptr<margelo::nitro::test::HybridMemoryHungryObjectFactorySpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::test::HybridMemoryHungryObjectFactorySpecSwift>(cppType);
+    #ifdef NITRO_DEBUG
+    if (swiftWrapper == nullptr) [[unlikely]] {
+      throw std::runtime_error("Class \"HybridMemoryHungryObjectFactorySpec\" is not implemented in Swift!");
+    }
+    #endif
+    NitroTest::HybridMemoryHungryObjectFactorySpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
+    return swiftPart.toUnsafe();
+  }
+  
+  // pragma MARK: std::shared_ptr<HybridMemoryHungryViewSpec>
+  std::shared_ptr<HybridMemoryHungryViewSpec> create_std__shared_ptr_HybridMemoryHungryViewSpec_(void* NON_NULL swiftUnsafePointer) noexcept {
+    NitroTest::HybridMemoryHungryViewSpec_cxx swiftPart = NitroTest::HybridMemoryHungryViewSpec_cxx::fromUnsafe(swiftUnsafePointer);
+    return std::make_shared<margelo::nitro::test::HybridMemoryHungryViewSpecSwift>(swiftPart);
+  }
+  void* NON_NULL get_std__shared_ptr_HybridMemoryHungryViewSpec_(std__shared_ptr_HybridMemoryHungryViewSpec_ cppType) {
+    std::shared_ptr<margelo::nitro::test::HybridMemoryHungryViewSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::test::HybridMemoryHungryViewSpecSwift>(cppType);
+    #ifdef NITRO_DEBUG
+    if (swiftWrapper == nullptr) [[unlikely]] {
+      throw std::runtime_error("Class \"HybridMemoryHungryViewSpec\" is not implemented in Swift!");
+    }
+    #endif
+    NitroTest::HybridMemoryHungryViewSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
     return swiftPart.toUnsafe();
   }
   

@@ -83,4 +83,28 @@ public final class NitroTestAutolinking {
   public static func isRecyclableTestViewRecyclable() -> Bool {
     return HybridRecyclableTestView.self is any RecyclableView.Type
   }
+  
+  public static func createMemoryHungryObjectFactory() -> bridge.std__shared_ptr_HybridMemoryHungryObjectFactorySpec_ {
+    let hybridObject = HybridMemoryHungryObjectFactory()
+    return { () -> bridge.std__shared_ptr_HybridMemoryHungryObjectFactorySpec_ in
+      let __cxxWrapped = hybridObject.getCxxWrapper()
+      return __cxxWrapped.getCxxPart()
+    }()
+  }
+  
+  public static func isMemoryHungryObjectFactoryRecyclable() -> Bool {
+    return HybridMemoryHungryObjectFactory.self is any RecyclableView.Type
+  }
+  
+  public static func createMemoryHungryView() -> bridge.std__shared_ptr_HybridMemoryHungryViewSpec_ {
+    let hybridObject = HybridMemoryHungryView()
+    return { () -> bridge.std__shared_ptr_HybridMemoryHungryViewSpec_ in
+      let __cxxWrapped = hybridObject.getCxxWrapper()
+      return __cxxWrapped.getCxxPart()
+    }()
+  }
+  
+  public static func isMemoryHungryViewRecyclable() -> Bool {
+    return HybridMemoryHungryView.self is any RecyclableView.Type
+  }
 }

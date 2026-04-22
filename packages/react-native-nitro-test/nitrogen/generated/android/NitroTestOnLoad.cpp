@@ -17,6 +17,10 @@
 
 #include "JHybridBaseSpec.hpp"
 #include "JHybridChildSpec.hpp"
+#include "JHybridMemoryHungryObjectSpec.hpp"
+#include "JHybridMemoryHungryObjectFactorySpec.hpp"
+#include "JHybridMemoryHungryViewSpec.hpp"
+#include "views/JHybridMemoryHungryViewStateUpdater.hpp"
 #include "JHybridPlatformObjectSpec.hpp"
 #include "JHybridRecyclableTestViewSpec.hpp"
 #include "views/JHybridRecyclableTestViewStateUpdater.hpp"
@@ -95,6 +99,22 @@ struct JHybridRecyclableTestViewSpecImpl: public jni::JavaClass<JHybridRecyclabl
     return javaPart->getJHybridRecyclableTestViewSpec();
   }
 };
+struct JHybridMemoryHungryObjectFactorySpecImpl: public jni::JavaClass<JHybridMemoryHungryObjectFactorySpecImpl, JHybridMemoryHungryObjectFactorySpec::JavaPart> {
+  static constexpr auto kJavaDescriptor = "Lcom/margelo/nitro/test/HybridMemoryHungryObjectFactory;";
+  static std::shared_ptr<JHybridMemoryHungryObjectFactorySpec> create() {
+    static const auto constructorFn = javaClassStatic()->getConstructor<JHybridMemoryHungryObjectFactorySpecImpl::javaobject()>();
+    jni::local_ref<JHybridMemoryHungryObjectFactorySpec::JavaPart> javaPart = javaClassStatic()->newObject(constructorFn);
+    return javaPart->getJHybridMemoryHungryObjectFactorySpec();
+  }
+};
+struct JHybridMemoryHungryViewSpecImpl: public jni::JavaClass<JHybridMemoryHungryViewSpecImpl, JHybridMemoryHungryViewSpec::JavaPart> {
+  static constexpr auto kJavaDescriptor = "Lcom/margelo/nitro/test/HybridMemoryHungryView;";
+  static std::shared_ptr<JHybridMemoryHungryViewSpec> create() {
+    static const auto constructorFn = javaClassStatic()->getConstructor<JHybridMemoryHungryViewSpecImpl::javaobject()>();
+    jni::local_ref<JHybridMemoryHungryViewSpec::JavaPart> javaPart = javaClassStatic()->newObject(constructorFn);
+    return javaPart->getJHybridMemoryHungryViewSpec();
+  }
+};
 
 void registerAllNatives() {
   using namespace margelo::nitro;
@@ -103,6 +123,10 @@ void registerAllNatives() {
   // Register native JNI methods
   margelo::nitro::test::JHybridBaseSpec::CxxPart::registerNatives();
   margelo::nitro::test::JHybridChildSpec::CxxPart::registerNatives();
+  margelo::nitro::test::JHybridMemoryHungryObjectSpec::CxxPart::registerNatives();
+  margelo::nitro::test::JHybridMemoryHungryObjectFactorySpec::CxxPart::registerNatives();
+  margelo::nitro::test::JHybridMemoryHungryViewSpec::CxxPart::registerNatives();
+  margelo::nitro::test::views::JHybridMemoryHungryViewStateUpdater::registerNatives();
   margelo::nitro::test::JHybridPlatformObjectSpec::CxxPart::registerNatives();
   margelo::nitro::test::JHybridRecyclableTestViewSpec::CxxPart::registerNatives();
   margelo::nitro::test::views::JHybridRecyclableTestViewStateUpdater::registerNatives();
@@ -167,6 +191,18 @@ void registerAllNatives() {
     "RecyclableTestView",
     []() -> std::shared_ptr<HybridObject> {
       return JHybridRecyclableTestViewSpecImpl::create();
+    }
+  );
+  HybridObjectRegistry::registerHybridObjectConstructor(
+    "MemoryHungryObjectFactory",
+    []() -> std::shared_ptr<HybridObject> {
+      return JHybridMemoryHungryObjectFactorySpecImpl::create();
+    }
+  );
+  HybridObjectRegistry::registerHybridObjectConstructor(
+    "MemoryHungryView",
+    []() -> std::shared_ptr<HybridObject> {
+      return JHybridMemoryHungryViewSpecImpl::create();
     }
   );
 }

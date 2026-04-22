@@ -18,6 +18,12 @@ namespace margelo::nitro::test { struct ExternalObjectStruct; }
 namespace margelo::nitro::test { class HybridBaseSpec; }
 // Forward declaration of `HybridChildSpec` to properly resolve imports.
 namespace margelo::nitro::test { class HybridChildSpec; }
+// Forward declaration of `HybridMemoryHungryObjectFactorySpec` to properly resolve imports.
+namespace margelo::nitro::test { class HybridMemoryHungryObjectFactorySpec; }
+// Forward declaration of `HybridMemoryHungryObjectSpec` to properly resolve imports.
+namespace margelo::nitro::test { class HybridMemoryHungryObjectSpec; }
+// Forward declaration of `HybridMemoryHungryViewSpec` to properly resolve imports.
+namespace margelo::nitro::test { class HybridMemoryHungryViewSpec; }
 // Forward declaration of `HybridPlatformObjectSpec` to properly resolve imports.
 namespace margelo::nitro::test { class HybridPlatformObjectSpec; }
 // Forward declaration of `HybridRecyclableTestViewSpec` to properly resolve imports.
@@ -52,6 +58,12 @@ namespace margelo::nitro::test { struct WrappedJsStruct; }
 namespace NitroTest { class HybridBaseSpec_cxx; }
 // Forward declaration of `HybridChildSpec_cxx` to properly resolve imports.
 namespace NitroTest { class HybridChildSpec_cxx; }
+// Forward declaration of `HybridMemoryHungryObjectFactorySpec_cxx` to properly resolve imports.
+namespace NitroTest { class HybridMemoryHungryObjectFactorySpec_cxx; }
+// Forward declaration of `HybridMemoryHungryObjectSpec_cxx` to properly resolve imports.
+namespace NitroTest { class HybridMemoryHungryObjectSpec_cxx; }
+// Forward declaration of `HybridMemoryHungryViewSpec_cxx` to properly resolve imports.
+namespace NitroTest { class HybridMemoryHungryViewSpec_cxx; }
 // Forward declaration of `HybridPlatformObjectSpec_cxx` to properly resolve imports.
 namespace NitroTest { class HybridPlatformObjectSpec_cxx; }
 // Forward declaration of `HybridRecyclableTestViewSpec_cxx` to properly resolve imports.
@@ -68,6 +80,9 @@ namespace NitroTest { class HybridTestViewSpec_cxx; }
 #include "ExternalObjectStruct.hpp"
 #include "HybridBaseSpec.hpp"
 #include "HybridChildSpec.hpp"
+#include "HybridMemoryHungryObjectFactorySpec.hpp"
+#include "HybridMemoryHungryObjectSpec.hpp"
+#include "HybridMemoryHungryViewSpec.hpp"
 #include "HybridPlatformObjectSpec.hpp"
 #include "HybridRecyclableTestViewSpec.hpp"
 #include "HybridTestObjectSwiftKotlinSpec.hpp"
@@ -280,6 +295,51 @@ namespace margelo::nitro::test::bridge::swift {
   inline Result_std__variant_std__string__Car__ create_Result_std__variant_std__string__Car__(const std::exception_ptr& error) noexcept {
     return Result<std::variant<std::string, Car>>::withError(error);
   }
+  
+  // pragma MARK: std::shared_ptr<HybridMemoryHungryObjectSpec>
+  /**
+   * Specialized version of `std::shared_ptr<HybridMemoryHungryObjectSpec>`.
+   */
+  using std__shared_ptr_HybridMemoryHungryObjectSpec_ = std::shared_ptr<HybridMemoryHungryObjectSpec>;
+  std::shared_ptr<HybridMemoryHungryObjectSpec> create_std__shared_ptr_HybridMemoryHungryObjectSpec_(void* NON_NULL swiftUnsafePointer) noexcept;
+  void* NON_NULL get_std__shared_ptr_HybridMemoryHungryObjectSpec_(std__shared_ptr_HybridMemoryHungryObjectSpec_ cppType);
+  
+  // pragma MARK: std::weak_ptr<HybridMemoryHungryObjectSpec>
+  using std__weak_ptr_HybridMemoryHungryObjectSpec_ = std::weak_ptr<HybridMemoryHungryObjectSpec>;
+  inline std__weak_ptr_HybridMemoryHungryObjectSpec_ weakify_std__shared_ptr_HybridMemoryHungryObjectSpec_(const std::shared_ptr<HybridMemoryHungryObjectSpec>& strong) noexcept { return strong; }
+  
+  // pragma MARK: std::shared_ptr<HybridMemoryHungryObjectFactorySpec>
+  /**
+   * Specialized version of `std::shared_ptr<HybridMemoryHungryObjectFactorySpec>`.
+   */
+  using std__shared_ptr_HybridMemoryHungryObjectFactorySpec_ = std::shared_ptr<HybridMemoryHungryObjectFactorySpec>;
+  std::shared_ptr<HybridMemoryHungryObjectFactorySpec> create_std__shared_ptr_HybridMemoryHungryObjectFactorySpec_(void* NON_NULL swiftUnsafePointer) noexcept;
+  void* NON_NULL get_std__shared_ptr_HybridMemoryHungryObjectFactorySpec_(std__shared_ptr_HybridMemoryHungryObjectFactorySpec_ cppType);
+  
+  // pragma MARK: std::weak_ptr<HybridMemoryHungryObjectFactorySpec>
+  using std__weak_ptr_HybridMemoryHungryObjectFactorySpec_ = std::weak_ptr<HybridMemoryHungryObjectFactorySpec>;
+  inline std__weak_ptr_HybridMemoryHungryObjectFactorySpec_ weakify_std__shared_ptr_HybridMemoryHungryObjectFactorySpec_(const std::shared_ptr<HybridMemoryHungryObjectFactorySpec>& strong) noexcept { return strong; }
+  
+  // pragma MARK: Result<std::shared_ptr<HybridMemoryHungryObjectSpec>>
+  using Result_std__shared_ptr_HybridMemoryHungryObjectSpec__ = Result<std::shared_ptr<HybridMemoryHungryObjectSpec>>;
+  inline Result_std__shared_ptr_HybridMemoryHungryObjectSpec__ create_Result_std__shared_ptr_HybridMemoryHungryObjectSpec__(const std::shared_ptr<HybridMemoryHungryObjectSpec>& value) noexcept {
+    return Result<std::shared_ptr<HybridMemoryHungryObjectSpec>>::withValue(value);
+  }
+  inline Result_std__shared_ptr_HybridMemoryHungryObjectSpec__ create_Result_std__shared_ptr_HybridMemoryHungryObjectSpec__(const std::exception_ptr& error) noexcept {
+    return Result<std::shared_ptr<HybridMemoryHungryObjectSpec>>::withError(error);
+  }
+  
+  // pragma MARK: std::shared_ptr<HybridMemoryHungryViewSpec>
+  /**
+   * Specialized version of `std::shared_ptr<HybridMemoryHungryViewSpec>`.
+   */
+  using std__shared_ptr_HybridMemoryHungryViewSpec_ = std::shared_ptr<HybridMemoryHungryViewSpec>;
+  std::shared_ptr<HybridMemoryHungryViewSpec> create_std__shared_ptr_HybridMemoryHungryViewSpec_(void* NON_NULL swiftUnsafePointer) noexcept;
+  void* NON_NULL get_std__shared_ptr_HybridMemoryHungryViewSpec_(std__shared_ptr_HybridMemoryHungryViewSpec_ cppType);
+  
+  // pragma MARK: std::weak_ptr<HybridMemoryHungryViewSpec>
+  using std__weak_ptr_HybridMemoryHungryViewSpec_ = std::weak_ptr<HybridMemoryHungryViewSpec>;
+  inline std__weak_ptr_HybridMemoryHungryViewSpec_ weakify_std__shared_ptr_HybridMemoryHungryViewSpec_(const std::shared_ptr<HybridMemoryHungryViewSpec>& strong) noexcept { return strong; }
   
   // pragma MARK: std::shared_ptr<HybridPlatformObjectSpec>
   /**

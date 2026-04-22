@@ -1,0 +1,10 @@
+{
+  "uiViewClassName": "MemoryHungryView",
+  "supportsRawText": false,
+  "bubblingEventTypes": {},
+  "directEventTypes": {},
+  "validAttributes": {
+    "object": true,
+    "hybridRef": true
+  }
+}

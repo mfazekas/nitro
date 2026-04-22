@@ -35,6 +35,10 @@ target_sources(
   # Shared Nitrogen C++ sources
   ../nitrogen/generated/shared/c++/HybridBaseSpec.cpp
   ../nitrogen/generated/shared/c++/HybridChildSpec.cpp
+  ../nitrogen/generated/shared/c++/HybridMemoryHungryObjectSpec.cpp
+  ../nitrogen/generated/shared/c++/HybridMemoryHungryObjectFactorySpec.cpp
+  ../nitrogen/generated/shared/c++/HybridMemoryHungryViewSpec.cpp
+  ../nitrogen/generated/shared/c++/views/HybridMemoryHungryViewComponent.cpp
   ../nitrogen/generated/shared/c++/HybridPlatformObjectSpec.cpp
   ../nitrogen/generated/shared/c++/HybridRecyclableTestViewSpec.cpp
   ../nitrogen/generated/shared/c++/views/HybridRecyclableTestViewComponent.cpp
@@ -47,6 +51,10 @@ target_sources(
   ../nitrogen/generated/android/c++/JHybridChildSpec.cpp
   ../nitrogen/generated/android/c++/JNamedVariant.cpp
   ../nitrogen/generated/android/c++/JVariant_String_Double.cpp
+  ../nitrogen/generated/android/c++/JHybridMemoryHungryObjectSpec.cpp
+  ../nitrogen/generated/android/c++/JHybridMemoryHungryObjectFactorySpec.cpp
+  ../nitrogen/generated/android/c++/JHybridMemoryHungryViewSpec.cpp
+  ../nitrogen/generated/android/c++/views/JHybridMemoryHungryViewStateUpdater.cpp
   ../nitrogen/generated/android/c++/JHybridPlatformObjectSpec.cpp
   ../nitrogen/generated/android/c++/JHybridRecyclableTestViewSpec.cpp
   ../nitrogen/generated/android/c++/views/JHybridRecyclableTestViewStateUpdater.cpp

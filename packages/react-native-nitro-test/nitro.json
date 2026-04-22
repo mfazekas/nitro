@@ -74,6 +74,26 @@
         "language": "kotlin",
         "implementationClassName": "HybridRecyclableTestView"
       }
+    },
+    "MemoryHungryObjectFactory": {
+      "ios": {
+        "language": "swift",
+        "implementationClassName": "HybridMemoryHungryObjectFactory"
+      },
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "HybridMemoryHungryObjectFactory"
+      }
+    },
+    "MemoryHungryView": {
+      "ios": {
+        "language": "swift",
+        "implementationClassName": "HybridMemoryHungryView"
+      },
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "HybridMemoryHungryView"
+      }
     }
   },
   "ignorePaths": [

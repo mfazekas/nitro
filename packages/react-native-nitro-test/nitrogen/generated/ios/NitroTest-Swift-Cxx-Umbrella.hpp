@@ -18,6 +18,12 @@ namespace margelo::nitro::test { struct ExternalObjectStruct; }
 namespace margelo::nitro::test { class HybridBaseSpec; }
 // Forward declaration of `HybridChildSpec` to properly resolve imports.
 namespace margelo::nitro::test { class HybridChildSpec; }
+// Forward declaration of `HybridMemoryHungryObjectFactorySpec` to properly resolve imports.
+namespace margelo::nitro::test { class HybridMemoryHungryObjectFactorySpec; }
+// Forward declaration of `HybridMemoryHungryObjectSpec` to properly resolve imports.
+namespace margelo::nitro::test { class HybridMemoryHungryObjectSpec; }
+// Forward declaration of `HybridMemoryHungryViewSpec` to properly resolve imports.
+namespace margelo::nitro::test { class HybridMemoryHungryViewSpec; }
 // Forward declaration of `HybridPlatformObjectSpec` to properly resolve imports.
 namespace margelo::nitro::test { class HybridPlatformObjectSpec; }
 // Forward declaration of `HybridRecyclableTestViewSpec` to properly resolve imports.
@@ -57,6 +63,9 @@ namespace margelo::nitro::test { struct WrappedJsStruct; }
 #include "ExternalObjectStruct.hpp"
 #include "HybridBaseSpec.hpp"
 #include "HybridChildSpec.hpp"
+#include "HybridMemoryHungryObjectFactorySpec.hpp"
+#include "HybridMemoryHungryObjectSpec.hpp"
+#include "HybridMemoryHungryViewSpec.hpp"
 #include "HybridPlatformObjectSpec.hpp"
 #include "HybridRecyclableTestViewSpec.hpp"
 #include "HybridTestObjectSwiftKotlinSpec.hpp"
@@ -102,6 +111,12 @@ namespace margelo::nitro::test { struct WrappedJsStruct; }
 namespace NitroTest { class HybridBaseSpec_cxx; }
 // Forward declaration of `HybridChildSpec_cxx` to properly resolve imports.
 namespace NitroTest { class HybridChildSpec_cxx; }
+// Forward declaration of `HybridMemoryHungryObjectFactorySpec_cxx` to properly resolve imports.
+namespace NitroTest { class HybridMemoryHungryObjectFactorySpec_cxx; }
+// Forward declaration of `HybridMemoryHungryObjectSpec_cxx` to properly resolve imports.
+namespace NitroTest { class HybridMemoryHungryObjectSpec_cxx; }
+// Forward declaration of `HybridMemoryHungryViewSpec_cxx` to properly resolve imports.
+namespace NitroTest { class HybridMemoryHungryViewSpec_cxx; }
 // Forward declaration of `HybridPlatformObjectSpec_cxx` to properly resolve imports.
 namespace NitroTest { class HybridPlatformObjectSpec_cxx; }
 // Forward declaration of `HybridRecyclableTestViewSpec_cxx` to properly resolve imports.

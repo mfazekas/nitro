@@ -6,6 +6,7 @@ import {
 import { type PlatformObject } from './specs/PlatformObject.nitro'
 import type { Base } from './specs/Base.nitro'
 import type { Child } from './specs/Child.nitro'
+import type { MemoryHungryObjectFactory } from './specs/MemoryHungryObject.nitro'
 
 // Export all Hybrid Object types
 export * from './specs/Base.nitro'
@@ -13,6 +14,8 @@ export * from './specs/Child.nitro'
 export * from './specs/PlatformObject.nitro'
 export * from './specs/TestObject.nitro'
 export * from './specs/TestView.nitro'
+export * from './specs/MemoryHungryObject.nitro'
+export * from './specs/MemoryHungryView.nitro'
 
 // Export all HybridObject singleton instances
 export const HybridTestObjectCpp =
@@ -25,6 +28,10 @@ export const HybridBase = NitroModules.createHybridObject<Base>('Base')
 export const HybridChild = NitroModules.createHybridObject<Child>('Child')
 export const HybridPlatformObject =
   NitroModules.createHybridObject<PlatformObject>('PlatformObject')
+export const HybridMemoryHungryObjectFactory =
+  NitroModules.createHybridObject<MemoryHungryObjectFactory>(
+    'MemoryHungryObjectFactory'
+  )
 
 // Export View (+ its ref type)
 export { TestView, type TestViewRef } from './views/TestView'
@@ -32,3 +39,7 @@ export {
   RecyclableTestView,
   type RecyclableTestViewRef,
 } from './views/RecyclableTestView'
+export {
+  MemoryHungryView,
+  type MemoryHungryViewRef,
+} from './views/MemoryHungryView'

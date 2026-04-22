@@ -17,6 +17,8 @@
 #include "HybridPlatformObjectSpecSwift.hpp"
 #include "HybridTestViewSpecSwift.hpp"
 #include "HybridRecyclableTestViewSpecSwift.hpp"
+#include "HybridMemoryHungryObjectFactorySpecSwift.hpp"
+#include "HybridMemoryHungryViewSpecSwift.hpp"
 
 @interface NitroTestAutolinking : NSObject
 @end
@@ -75,6 +77,20 @@
     "RecyclableTestView",
     []() -> std::shared_ptr<HybridObject> {
       std::shared_ptr<HybridRecyclableTestViewSpec> hybridObject = NitroTest::NitroTestAutolinking::createRecyclableTestView();
+      return hybridObject;
+    }
+  );
+  HybridObjectRegistry::registerHybridObjectConstructor(
+    "MemoryHungryObjectFactory",
+    []() -> std::shared_ptr<HybridObject> {
+      std::shared_ptr<HybridMemoryHungryObjectFactorySpec> hybridObject = NitroTest::NitroTestAutolinking::createMemoryHungryObjectFactory();
+      return hybridObject;
+    }
+  );
+  HybridObjectRegistry::registerHybridObjectConstructor(
+    "MemoryHungryView",
+    []() -> std::shared_ptr<HybridObject> {
+      std::shared_ptr<HybridMemoryHungryViewSpec> hybridObject = NitroTest::NitroTestAutolinking::createMemoryHungryView();
       return hybridObject;
     }
   );
