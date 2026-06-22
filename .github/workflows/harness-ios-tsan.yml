@@ -27,7 +27,8 @@ env:
   DEVELOPER_DIR: /Applications/Xcode_26.5.app/Contents/Developer
   HARNESS_DEBUG: 1
   # Forwarded by simctl to the iOS app process — makes TSan crash on first race
-  SIMCTL_CHILD_TSAN_OPTIONS: "halt_on_error=1"
+  # log_path writes reports to /tmp/tsan_report.<pid> (simulator /tmp = host /tmp)
+  SIMCTL_CHILD_TSAN_OPTIONS: "halt_on_error=1:log_path=/tmp/tsan_report"
 
 jobs:
   harness_ios_tsan:
@@ -85,3 +86,26 @@ jobs:
           projectRoot: example
           app: ios/build/Build/Products/Debug-iphonesimulator/NitroExample.app
           packageManager: bun
+
+      - name: Show TSan reports
+        if: always()
+        run: |
+          shopt -s nullglob
+          reports=(/tmp/tsan_report.*)
+          if [ ${#reports[@]} -eq 0 ]; then
+            echo "No TSan reports found in /tmp — no race detected or log_path not writable."
+          else
+            for f in "${reports[@]}"; do
+              echo "::group::TSan report: $(basename "$f")"
+              cat "$f"
+              echo "::endgroup::"
+            done
+          fi
+
+      - name: Upload TSan reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tsan-reports
+          path: /tmp/tsan_report.*
+          if-no-files-found: ignore
