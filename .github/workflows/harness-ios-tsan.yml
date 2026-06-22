@@ -62,7 +62,6 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild \
-            CC=clang CPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ \
             -enableThreadSanitizer YES \
             -derivedDataPath build -UseModernBuildSystem=YES \
             -workspace NitroExample.xcworkspace \
