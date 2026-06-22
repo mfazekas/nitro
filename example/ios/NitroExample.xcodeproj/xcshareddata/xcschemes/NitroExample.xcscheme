@@ -51,13 +51,6 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       enableThreadSanitizer = "YES">
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "TSAN_OPTIONS"
-            value = "halt_on_error=1"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
@@ -68,6 +61,13 @@
             ReferencedContainer = "container:NitroExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "TSAN_OPTIONS"
+            value = "halt_on_error=1"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

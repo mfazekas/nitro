@@ -26,6 +26,8 @@ env:
   XCODE_VERSION: "26.5"
   DEVELOPER_DIR: /Applications/Xcode_26.5.app/Contents/Developer
   HARNESS_DEBUG: 1
+  # Forwarded by simctl to the iOS app process — makes TSan crash on first race
+  SIMCTL_CHILD_TSAN_OPTIONS: "halt_on_error=1"
 
 jobs:
   harness_ios_tsan:
@@ -76,6 +78,8 @@ jobs:
         run: brew install watchman
 
       - name: Run Harness E2E tests
+        # App is built with TSan; SIMCTL_CHILD_TSAN_OPTIONS forwards halt_on_error=1
+        # into the simulator process so any detected race crashes the app → harness fails.
         uses: callstackincubator/react-native-harness@v1.2.0
         with:
           runner: ios
